@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import Cursos from "./pages/Cursos";
 import NoPage from "./pages/NoPage";
+import Curso1 from "./pages/Curso1";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -15,7 +16,7 @@ function App() {
           <Route path="/Cursos" element={<Cursos />} />
           <Route path="/home" element={<Home />} />
           <Route path="*" element={<NoPage />} />
-          <Route path="/Cursos/curso1" element={<NoPage />} />
+          <Route path="/Cursos/curso1" element={<Curso1 />} />
         </Routes>
       </BrowserRouter>
     </div>
