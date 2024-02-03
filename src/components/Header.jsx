@@ -14,10 +14,10 @@ export default function Header() {
               <Link to={"/Cursos"}>Cursos</Link>
             </li>
             <li>
-              <Link to={"/LogIn"}>Log In</Link>
+              <Link to={"/login"}>Log In</Link>
             </li>
             <li>
-              <Link to={"/SignUp"}>Sign Up</Link>
+              <Link to={"/register"}>Sign Up</Link>
             </li>
           </ul>
         </nav>
