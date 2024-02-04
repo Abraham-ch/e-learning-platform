@@ -3,6 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import Loginbutton from "./Loginbutton";
 import Logoutbutton from "./Logoutbutton";
 import Singupbutton from "./Singupbutton";
+import Profile from "./Profile";
 
 export default function Header() {
   const { isAuthenticated } = useAuth0();
@@ -11,16 +12,25 @@ export default function Header() {
     <>
       <header className="flex items-center py-3 px-16 justify-between text-white bg-black">
         <a href="/">Logo</a>
-        <nav>
-          <ul className="flex justify-around gap-x-16">
+        <nav className="flex justify-between">
+          <ul className="flex justify-start gap-x-8 h-8 items-center">
             <li>
               <Link to={"/"}>Home</Link>
             </li>
             <li>
               <Link to={"/Cursos"}>Cursos</Link>
             </li>
+            {isAuthenticated ? (
+              <li>
+                <Profile />
+              </li>
+            ) : null}
             <li>{isAuthenticated ? <Logoutbutton /> : <Loginbutton />}</li>
-            <li>{isAuthenticated ? <div></div> : <Singupbutton />}</li>
+            {isAuthenticated ? null : (
+              <li>
+                <Singupbutton />
+              </li>
+            )}
           </ul>
         </nav>
       </header>

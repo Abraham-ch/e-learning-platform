@@ -5,8 +5,18 @@ import NoPage from "./pages/NoPage";
 import Curso1 from "./pages/Curso1";
 import LogIn from "./pages/Login";
 import Register from "./pages/Register";
+import { useAuth0 } from "@auth0/auth0-react";
 
 function App() {
+  const { isLoading } = useAuth0();
+
+  if (isLoading)
+    return (
+      <div className="h-screen w-screen flex items-center justify-center">
+        <h1 className="font-bold text-5xl">Loading...</h1>
+      </div>
+    );
+
   return (
     <div>
       <BrowserRouter>
