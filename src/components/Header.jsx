@@ -6,7 +6,7 @@ import Singupbutton from "./Singupbutton";
 import Profile from "./Profile";
 
 export default function Header() {
-  const { isAuthenticated } = useAuth0();
+  const { isAuthenticated, user } = useAuth0();
 
   return (
     <>
@@ -19,6 +19,9 @@ export default function Header() {
             </li>
             <li>
               <Link to={"/Cursos"}>Cursos</Link>
+            </li>
+            <li>
+              <Link to={"/Dashboard"}>Dashboard</Link>
             </li>
             {isAuthenticated ? (
               <li>

@@ -3,9 +3,10 @@ import Home from "./pages/Home";
 import Cursos from "./pages/Cursos";
 import NoPage from "./pages/NoPage";
 import Curso1 from "./pages/Curso1";
-import LogIn from "./pages/Login";
+import LogIn from "./pages/login";
 import Register from "./pages/Register";
 import { useAuth0 } from "@auth0/auth0-react";
+import Dashboard from "./pages/dashboard";
 
 function App() {
   const { isLoading } = useAuth0();
@@ -28,6 +29,7 @@ function App() {
           <Route path="/Cursos/curso1" element={<Curso1 />} />
           <Route path="/login" element={<LogIn />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/Dashboard" element={<Dashboard />} />
         </Routes>
       </BrowserRouter>
     </div>
