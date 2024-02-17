@@ -5,7 +5,7 @@ const Profile = () => {
   return (
     <div className="flex gap-x-3 items-center">
       <img src={user.picture} alt={user.name} className="h-8 rounded-full" />
-      <div>{user.name}</div>
+      <div>{user.nickname}</div>
     </div>
   );
 };

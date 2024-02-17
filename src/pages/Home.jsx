@@ -1,8 +1,27 @@
 import Header from "../components/Header";
-import Profile from "../components/Profile";
 import Singupbutton from "../components/Singupbutton";
+import CreateAuth0user from "../components/CreateAuth0user";
+import axios from "axios";
 
 export default function Home() {
+  // Configura la instancia de Axios
+  const axiosInstance = axios.create({
+    baseURL: "http://localhost:8000/", // Reemplaza esto con la URL base de tu backend
+    withCredentials: true, // Habilita el envío de cookies de sesión en las solicitudes
+  });
+
+  // Realiza la solicitud GET para obtener la información sobre cursos
+  axiosInstance
+    .get("/courses/api/v1/course/")
+    .then((response) => {
+      // Maneja la respuesta aquí
+      console.log("Información sobre cursos:", response.data);
+    })
+    .catch((error) => {
+      // Maneja el error aquí
+      console.error("Error al obtener la información sobre cursos:", error);
+    });
+
   return (
     <>
       <div className="h-screen flex flex-col ">
@@ -106,7 +125,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div></div>
+      <div className="mx-auto my-8 border-2 flex justify-center"></div>
     </>
   );
 }

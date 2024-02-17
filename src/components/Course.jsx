@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Course() {
   return (
     <>
@@ -17,12 +19,9 @@ export default function Course() {
         </div>
         <div className="flex flex-row justify-between px-8 font-bold items-center pb-3">
           <div className="rounded-full items-center p-2">10%</div>
-          <a
-            className="rounded-lg px-4 py-2 hover:bg-gray-200 transition-colors duration-500 "
-            href="#"
-          >
-            Join
-          </a>
+          <div className="rounded-lg px-4 py-2 hover:bg-gray-200 transition-colors duration-500 ">
+            <Link to={"/Dashboard/"}>Join</Link>
+          </div>
         </div>
       </div>
     </>

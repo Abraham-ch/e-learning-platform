@@ -1,4 +1,4 @@
-import { Outlet, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import Loginbutton from "./Loginbutton";
 import Logoutbutton from "./Logoutbutton";

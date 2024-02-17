@@ -7,8 +7,11 @@ import LogIn from "./pages/login";
 import Register from "./pages/Register";
 import { useAuth0 } from "@auth0/auth0-react";
 import Dashboard from "./pages/dashboard";
+import InfocursoID from "./pages/InfocursoID";
+import CreateAuth0user from "./components/CreateAuth0user";
 
 function App() {
+  CreateAuth0user();
   const { isLoading } = useAuth0();
 
   if (isLoading)
@@ -19,7 +22,7 @@ function App() {
     );
 
   return (
-    <div>
+    <div className="fuente">
       <BrowserRouter>
         <Routes>
           <Route index element={<Home />} />
@@ -30,6 +33,7 @@ function App() {
           <Route path="/login" element={<LogIn />} />
           <Route path="/register" element={<Register />} />
           <Route path="/Dashboard" element={<Dashboard />} />
+          <Route path="/Cursos/:id" element={<InfocursoID />} />
         </Routes>
       </BrowserRouter>
     </div>
