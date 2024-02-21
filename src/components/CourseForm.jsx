@@ -46,64 +46,44 @@ function CourseForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="max-w-md mx-auto my-10 bg-white p-8 rounded-lg shadow-md"
+      className="max-w-3xl my-10 bg-white rounded-lg "
     >
-      <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">
-        Crear Curso
-      </h2>
+      <div className="flex gap-x-8 w-full">
+        <div className="mb-4">
+          <label
+            htmlFor="name"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Nombre del curso
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value={course.name}
+            onChange={handleChange}
+            className="mt-1 block px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            required
+          />
+        </div>
 
-      <div className="mb-4">
-        <label
-          htmlFor="name"
-          className="block text-sm font-medium text-gray-700"
-        >
-          Nombre del curso
-        </label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          value={course.name}
-          onChange={handleChange}
-          className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-          required
-        />
-      </div>
-
-      <div className="mb-4">
-        <label
-          htmlFor="professor"
-          className="block text-sm font-medium text-gray-700"
-        >
-          Profesor
-        </label>
-        <input
-          type="text"
-          id="professor"
-          name="professor"
-          value={course.professor}
-          onChange={handleChange}
-          className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-          required
-        />
-      </div>
-
-      <div className="mb-4">
-        <label
-          htmlFor="price"
-          className="block text-sm font-medium text-gray-700"
-        >
-          Precio
-        </label>
-        <input
-          type="text"
-          id="price"
-          name="price"
-          value={course.price}
-          onChange={handleChange}
-          className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-          required
-        />
+        <div className="mb-4 w-full">
+          <label
+            htmlFor="professor"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Profesor
+          </label>
+          <input
+            type="text"
+            id="professor"
+            name="professor"
+            value={course.professor}
+            onChange={handleChange}
+            className="mt-1 block w-2/3 px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            required
+          />
+        </div>
       </div>
 
       <div className="mb-4">
@@ -123,42 +103,63 @@ function CourseForm() {
         />
       </div>
 
-      <div className="mb-4">
-        <label
-          htmlFor="modules"
-          className="block text-sm font-medium text-gray-700"
-        >
-          Módulos
-        </label>
-        <input
-          type="number"
-          id="modules"
-          name="modules"
-          min="0"
-          value={course.modules}
-          onChange={handleChange}
-          className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-          required
-        />
-      </div>
+      <div className="flex gap-x-8">
+        <div className="mb-4">
+          <label
+            htmlFor="modules"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Módulos
+          </label>
+          <input
+            type="number"
+            id="modules"
+            name="modules"
+            min="0"
+            value={course.modules}
+            onChange={handleChange}
+            className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            required
+          />
+        </div>
 
-      <div className="mb-4">
-        <label
-          htmlFor="order"
-          className="block text-sm font-medium text-gray-700"
-        >
-          Orden
-        </label>
-        <input
-          type="number"
-          id="order"
-          name="order"
-          min="0"
-          value={course.order}
-          onChange={handleChange}
-          className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-          required
-        />
+        <div className="mb-4">
+          <label
+            htmlFor="order"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Orden
+          </label>
+          <input
+            type="number"
+            id="order"
+            name="order"
+            min="0"
+            value={course.order}
+            onChange={handleChange}
+            className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            required
+          />
+        </div>
+
+        <div className="mb-4">
+          <label
+            htmlFor="price"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Precio
+          </label>
+          <input
+            type="text"
+            id="price"
+            name="price"
+            placeholder="S/00.00"
+            value={course.price}
+            onChange={handleChange}
+            className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            required
+          />
+        </div>
       </div>
 
       <div className="mb-4">

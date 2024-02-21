@@ -5,6 +5,41 @@ import properlogo from "../resources/proper-logo.svg";
 import { getAllCourse } from "../api/api";
 import CourseForm from "../components/CourseForm";
 
+const LinkList = () => {
+  // Estado para manejar el enlace activo
+  const [activeLink, setActiveLink] = useState(null);
+
+  // Lista de enlaces (podrías pasar esto como propiedades o cargarlo de alguna otra manera)
+  const links = [
+    { path: "courses", label: "Courses" },
+    { path: "notifications", label: "Users" },
+    { path: "users", label: "Notifications" },
+    { path: "security", label: "Security" },
+    { path: "settings", label: "Settings" },
+    { path: "/", label: "Logout" },
+  ];
+
+  return (
+    <div>
+      {links.map((link, index) => (
+        <li key={index} className="w-full flex justify-center py-1">
+          <Link
+            to={link.path}
+            className={` px-6 py-3 w-full transition-all hover:brightness-[0.9] rounded-lg shadow-sm inline-block ${
+              activeLink === index
+                ? "bg-white text-[#1c1a62]"
+                : "bg-transparent text-white"
+            }`}
+            onClick={() => setActiveLink(index)}
+          >
+            {link.label}
+          </Link>
+        </li>
+      ))}
+    </div>
+  );
+};
+
 const listacursos = () => {
   const [courses, setCourses] = useState([]);
 
@@ -65,7 +100,7 @@ export const CoursesAdmin = () => {
     <>
       <div className="max-w-5xl w-full mx-auto py-16">
         <h1 className="text-4xl font-semibold">Lista de Cursos</h1>
-        <p className="py-8">
+        <p className="py-8 max-w-4xl">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Non nulla
           vero, nostrum eos repellendus laudantium reprehenderit veniam.
           Voluptatem corrupti totam recusandae aut repellendus nam accusamus?
@@ -79,8 +114,8 @@ export const CoursesAdmin = () => {
         </ul>
         <div> {listacursos()} </div>
 
-        <h2 className="text-3xl font-semibold pt-10 pb-8">Añadir cursos</h2>
-        <p>
+        <h2 className="text-3xl font-semibold pt-16 pb-8">Añadir cursos</h2>
+        <p className="max-w-4xl">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui aperiam
           doloribus reprehenderit quos explicabo magnam eaque nesciunt sit
           corporis sapiente, laboriosam dolorem molestiae numquam.
@@ -142,54 +177,7 @@ export default function Admin() {
                 />
               </Link>
             </li>
-            <li className="w-full flex justify-center">
-              <Link
-                to="courses"
-                className=" px-6 py-3 w-full focus:bg-white hover:brightness-[0.9] rounded-lg focus:text-[#1c1a62] text-white shadow-sm"
-              >
-                Courses
-              </Link>
-            </li>
-            <li className="w-full flex justify-center">
-              <Link
-                to="users"
-                className=" px-6 py-3 w-full focus:bg-white hover:brightness-[0.9] rounded-lg focus:text-[#1c1a62] text-white shadow-sm"
-              >
-                Users
-              </Link>
-            </li>
-            <li className="w-full flex justify-center">
-              <Link
-                to="notifications"
-                className=" px-6 py-3 w-full focus:bg-white hover:brightness-[0.9] rounded-lg focus:text-[#1c1a62] text-white shadow-sm"
-              >
-                Notifications
-              </Link>
-            </li>
-            <li className="w-full flex justify-center">
-              <Link
-                to="security"
-                className=" px-6 py-3 w-full focus:bg-white hover:brightness-[0.9] rounded-lg focus:text-[#1c1a62] text-white shadow-sm"
-              >
-                Security
-              </Link>
-            </li>
-            <li className="w-full flex justify-center">
-              <Link
-                to="settings"
-                className=" px-6 py-3 w-full focus:bg-white hover:brightness-[0.9] rounded-lg focus:text-[#1c1a62] text-white shadow-sm"
-              >
-                Settings
-              </Link>
-            </li>
-            <li className="w-full flex justify-center">
-              <Link
-                to="/"
-                className=" px-6 py-3 w-full focus:bg-white hover:brightness-[0.9] rounded-lg text-white"
-              >
-                Logout
-              </Link>
-            </li>
+            {LinkList()}
           </ul>
         </nav>
         <div className="w-full h-full border-2">
