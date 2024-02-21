@@ -1,27 +1,7 @@
 import Header from "../components/Header";
 import Singupbutton from "../components/Singupbutton";
-import CreateAuth0user from "../components/CreateAuth0user";
-import axios from "axios";
 
 export default function Home() {
-  // Configura la instancia de Axios
-  const axiosInstance = axios.create({
-    baseURL: "http://localhost:8000/", // Reemplaza esto con la URL base de tu backend
-    withCredentials: true, // Habilita el envío de cookies de sesión en las solicitudes
-  });
-
-  // Realiza la solicitud GET para obtener la información sobre cursos
-  axiosInstance
-    .get("/courses/api/v1/course/")
-    .then((response) => {
-      // Maneja la respuesta aquí
-      console.log("Información sobre cursos:", response.data);
-    })
-    .catch((error) => {
-      // Maneja el error aquí
-      console.error("Error al obtener la información sobre cursos:", error);
-    });
-
   return (
     <>
       <div className="h-screen flex flex-col ">
@@ -53,11 +33,11 @@ export default function Home() {
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
-                stroke-width="1.5"
+                strokeWidth="1.5"
                 stroke="currentColor"
                 fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
@@ -78,11 +58,11 @@ export default function Home() {
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
-                stroke-width="1.5"
+                strokeWidth="1.5"
                 stroke="currentColor"
                 fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path d="M15 15m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
@@ -107,13 +87,13 @@ export default function Home() {
                   d="M20.4 19.3L32 24.4C29.7 27.8 28.5 31.7 28.5 35.8C28.5 47 37.6 56.2 48.9 56.2C60.2 56.2 69.3 47.1 69.3 35.8C69.3 31.8 68.1 27.8 65.9 24.5L76.1 19.7V39.1L73 45.7C72.8 46.2 72.8 46.7 73.1 47.1C73.4 47.5 73.9 47.8 74.4 47.8H80.3C80.8 47.8 81.3 47.6 81.5 47.1C81.8 46.7 81.8 46.2 81.6 45.7L78.9 39.1V18.4C78.9 17.6 78.8 17 77.4 16.4C77.1 16.3 49.6 4.10001 49.6 4.10001C49.2 3.90001 48.8 3.90001 48.4 4.10001L20.4 16.5C19.9 16.7 19.5 17.3 19.5 17.9C19.5 18.5 19.8 19 20.4 19.3ZM66.2 35.8C66.2 45.4 58.4 53.2 48.8 53.2C39.2 53.2 31.4 45.4 31.4 35.8C31.4 32.1 32.6 28.6 34.7 25.6L48.3 31.7C48.5 31.8 48.7 31.8 48.9 31.8C49.1 31.8 49.3 31.8 49.5 31.7L62.9 25.7C65.1 28.7 66.2 32.2 66.2 35.8ZM76.7 44.8L77.4 43.3L78 44.8H76.7ZM49 7.10001L73.3 17.9L49 28.7L24.7 17.9L49 7.10001Z"
                   fill="black"
                   stroke="black"
-                  stroke-width="2.2"
+                  strokeWidth="2.2"
                 ></path>
                 <path
                   d="M49.4 59.8C29.9 59.8 14 75.7 14 95.2C14 96 14.7 96.7 15.5 96.7H83.3C84.1 96.7 84.8 96 84.8 95.2C84.8 75.7 68.9 59.8 49.4 59.8ZM17.1 93.7C17.9 76.5 32.1 62.8 49.5 62.8C66.9 62.8 81 76.6 81.8 93.7H17.1Z"
                   fill="black"
                   stroke="black"
-                  stroke-width="2.2"
+                  strokeWidth="2.2"
                 ></path>
               </svg>
             </div>
@@ -125,7 +105,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="mx-auto my-8 border-2 flex justify-center"></div>
     </>
   );
 }

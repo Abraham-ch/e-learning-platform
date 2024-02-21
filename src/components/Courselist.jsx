@@ -1,15 +1,19 @@
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getAllCourse } from "../api/api";
-import { Link } from "react-router-dom";
 
 export default function CourseList() {
   const [courses, setCourses] = useState([]);
 
   useEffect(() => {
     async function loadCourses() {
-      const res = await getAllCourse();
-      console.log(res);
-      setCourses(res.data.results);
+      try {
+        const res = await getAllCourse();
+        console.log(res);
+        setCourses(res.data.results);
+      } catch (error) {
+        console.error("Error al cargar los cursos:", error);
+      }
     }
     loadCourses();
   }, []);
@@ -18,11 +22,8 @@ export default function CourseList() {
     <>
       <div className="grid xl:grid-cols-4 md:grid-cols-3 xs:grid-cols-1 grid-cols-2 gap-x-7 gap-y-8 backdrop-blur-xl">
         {courses.map((course) => (
-          <div className="max-w-[22rem] shadow-sm">
-            <div
-              className="rounded-xl py-2 w-full flex flex-col"
-              key={course.id}
-            >
+          <div className="max-w-[22rem] shadow-sm" key={course.id}>
+            <div className="rounded-xl py-2 w-full flex flex-col">
               <Link
                 className="relative flex items-center justify-center group px-2"
                 to={`/Cursos/${course.id}`}

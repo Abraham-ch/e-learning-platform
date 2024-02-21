@@ -9,6 +9,13 @@ import { useAuth0 } from "@auth0/auth0-react";
 import Dashboard from "./pages/dashboard";
 import InfocursoID from "./pages/InfocursoID";
 import CreateAuth0user from "./components/CreateAuth0user";
+import Admin, {
+  CoursesAdmin,
+  UsersAdmin,
+  NotificationsAdmin,
+  SecurityAdmin,
+  SettingsAdmin,
+} from "./pages/Admin";
 
 function App() {
   CreateAuth0user();
@@ -34,6 +41,13 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/Dashboard" element={<Dashboard />} />
           <Route path="/Cursos/:id" element={<InfocursoID />} />
+          <Route path="/admin" element={<Admin />}>
+            <Route path="courses" element={<CoursesAdmin />} />
+            <Route path="users" element={<UsersAdmin />} />
+            <Route path="notifications" element={<NotificationsAdmin />} />
+            <Route path="security" element={<SecurityAdmin />} />
+            <Route path="settings" element={<SettingsAdmin />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </div>
